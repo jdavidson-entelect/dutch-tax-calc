@@ -1,0 +1,8 @@
+<p style="font-size:18px; font-family: sans-serif;">Please select the year you would like to calulate your taxes for.</p>
+
+<mat-form-field appearance="fill">
+  <mat-label>Year</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor = "let year of availableYears" [value]="year">{{year}}</mat-option>
+  </mat-select>
+</mat-form-field>
