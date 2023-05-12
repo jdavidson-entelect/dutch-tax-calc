@@ -3,10 +3,9 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-salary-picker',
-  templateUrl: './salary-picker.component.html',
-  styleUrls: ['./salary-picker.component.css']
+  templateUrl: './currency-input.component.html',
+  styleUrls: ['./currency-input.component.css']
 })
-export class SalaryPickerComponent {
-
+export class CurrencyInputComponent {
   amountCtrl = new FormControl(null, { updateOn: 'blur' });
 }
