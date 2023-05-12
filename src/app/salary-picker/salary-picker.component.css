@@ -1,0 +1,26 @@
+main {
+    padding: 2rem;
+}
+label {
+    display: block;
+    padding: 1rem;
+}
+label:focus-within {
+    outline: 2px solid #86a8df;
+}
+.currency-input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: max-content;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+.currency-input span {
+    margin: 0 1rem;
+}
+.currency-input input {
+    border: none;
+}
+.currency-input input:focus {
+    outline: none;
+}

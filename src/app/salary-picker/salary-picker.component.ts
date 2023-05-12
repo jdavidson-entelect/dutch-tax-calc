@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-salary-picker',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class SalaryPickerComponent {
 
+  amountCtrl = new FormControl(null, { updateOn: 'blur' });
 }

@@ -1,5 +1,12 @@
-<md-input-container class="md-icon-float">
-    <label>Price</label>
-    <md-icon md-font-icon="fa fa-money"></md-icon>
-    <input  currency-mask ng-model="amount" id="sInput" />
-  </md-input-container>
+<mat-form-field class="example-full-width">
+  <mat-label>Favorite food</mat-label>
+  <div class="currency-input">
+    <span>€</span>
+    <input 
+      type="float" 
+      placeholder="Amount" 
+      [formControl]="amountCtrl" 
+      [value]="amountCtrl.value | number:'1.2-2'" 
+      aria-label="Amount" />
+  </div>
+</mat-form-field>
