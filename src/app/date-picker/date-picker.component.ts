@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
 import { constants } from 'dutch-tax-income-calculator';
 
 @Component({
@@ -11,5 +9,4 @@ import { constants } from 'dutch-tax-income-calculator';
 export class DatePickerComponent {
   availableYears = constants.years.reverse()
   selected =  this.availableYears[0]
-
 }

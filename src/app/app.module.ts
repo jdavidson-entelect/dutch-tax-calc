@@ -9,12 +9,15 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { SalaryPickerComponent } from './salary-picker/salary-picker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyInputComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    SalaryPickerComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

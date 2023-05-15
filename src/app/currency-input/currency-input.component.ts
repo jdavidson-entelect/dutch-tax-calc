@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-salary-picker',
+  selector: 'app-currency-input',
   templateUrl: './currency-input.component.html',
   styleUrls: ['./currency-input.component.css']
 })
