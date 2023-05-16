@@ -13,6 +13,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SalaryPickerComponent } from './salary-picker/salary-picker.component';
 import { AllowancePickerComponent } from './allowance-picker/allowance-picker.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { CalculationResultsComponent } from './calculation-results/calculation-results.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     CurrencyInputComponent,
     DatePickerComponent,
     SalaryPickerComponent,
-    AllowancePickerComponent
+    AllowancePickerComponent,
+    CalculationResultsComponent
   ],
   imports: [
     BrowserModule,

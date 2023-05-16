@@ -2,7 +2,7 @@
     <mat-step [stepControl]="dateFormGroup">
       <form [formGroup]="dateFormGroup">
         <ng-template matStepLabel>Year</ng-template>
-          <app-date-picker></app-date-picker>
+          <app-date-picker (dateSelectedEvent) = "updateDate($event)"></app-date-picker>
         <div>
           <button mat-button matStepperNext>Next</button>
         </div>
@@ -24,17 +24,14 @@
           <app-allowance-picker></app-allowance-picker>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext>Get Results</button>
           </div>
         </form>
       </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
+      <app-calculation-results [selectedDate] = "selectedDate"></app-calculation-results>
+      
     </mat-step>
   </mat-stepper>
   

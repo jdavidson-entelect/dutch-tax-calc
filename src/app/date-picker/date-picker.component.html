@@ -2,7 +2,7 @@
 
 <mat-form-field appearance="fill">
   <mat-label>Year</mat-label>
-  <mat-select [(value)]="selected">
+  <mat-select [(value)]="selected" (selectionChange)="updateSelectedDate($event)">
     <mat-option *ngFor = "let year of availableYears" [value]="year">{{year}}</mat-option>
   </mat-select>
 </mat-form-field>

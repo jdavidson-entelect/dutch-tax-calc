@@ -7,6 +7,8 @@ import {FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  selectedDate: string = ""
+
   dateFormGroup = this._formBuilder.group({
     dateCtrl: ['', Validators.required],
   });
@@ -16,6 +18,10 @@ export class AppComponent {
   allowanceFormGroup = this._formBuilder.group({
     allowanceCtrl: ['', Validators.required],
   });
+
+  updateDate(value: string) { 
+    this.selectedDate = value;
+  }
 
 
   constructor(private _formBuilder: FormBuilder) {}
