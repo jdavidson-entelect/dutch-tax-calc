@@ -1,6 +1,6 @@
 <p>Please insert your base annual salary without any allowances.</p>
 
-<app-currency-input></app-currency-input>
+<app-currency-input>(valueUpdatedEvent)="updateSalaryValueEvent($event)"</app-currency-input>
 
 <section>
   <mat-checkbox [checked]="thirtyPercentChecked" [disabled]="thirtyPercentDisabled">

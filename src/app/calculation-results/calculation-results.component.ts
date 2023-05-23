@@ -8,29 +8,27 @@ import { SalaryPaycheck } from 'dutch-tax-income-calculator';
 })
 export class CalculationResultsComponent {
   @Input() selectedDate = "2023";
-  @Input() annualSalary: number = 55692;
+  @Input() annualSalary: number = 0;
   @Input() annualAllowance: number = 0; //TODO: Add logic to add allowance value
   @Input() ruling: boolean = true;
 
   paycheck: any;
 
-
-ngOnInit() {
-
-  this.paycheck = new SalaryPaycheck({
-    income: this.annualSalary,
-    allowance: false,
-    socialSecurity: true,//, What is this and how does it work?
-    older: false,
-    hours: 40,
-}, 
-'Year', 
-2023, 
-{
-    checked: true,
-    choice: "normal", //TODO: We need to add checkboxes to be able to choose the different types
-});
-console.log(this.paycheck);
-
-}
+  ngOnChanges() {
+    this.paycheck = new SalaryPaycheck({
+      income: this.annualSalary,
+      allowance: false,
+      socialSecurity: true,//, What is this and how does it work?
+      older: false,
+      hours: 40,
+    }, 
+    'Year', 
+    2023, 
+    {
+        checked: true,
+        choice: "normal", //TODO: We need to add checkboxes to be able to choose the different types
+    });
+    console.log(this.paycheck);
+    console.log(this.annualSalary);
+  }
 }

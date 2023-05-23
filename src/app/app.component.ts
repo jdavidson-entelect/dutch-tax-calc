@@ -8,6 +8,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class AppComponent {
   selectedDate: string = ""
+  salary: number = 0
 
   dateFormGroup = this._formBuilder.group({
     dateCtrl: ['', Validators.required],
@@ -21,6 +22,10 @@ export class AppComponent {
 
   updateDate(value: string) { 
     this.selectedDate = value;
+  }
+
+  updateSalaryValue(value: number) {
+    this.salary = value;
   }
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
 
 @Component({
@@ -13,4 +13,10 @@ export class SalaryPickerComponent {
   
   vakantiegeldIncludedChecked = false;
   vakantiegeldIncludedDisabled = false;
+  
+  @Output() salaryValueUpdatedEvent = new EventEmitter<number>();
+
+  updateSalaryValueEvent(value: number) {
+    this.salaryValueUpdatedEvent.emit(value);
+  }
 }

@@ -3,6 +3,7 @@
   <input 
     type="float" 
     placeholder="Amount" 
+    (change)="updateValue($event)"
     [formControl]="amountCtrl" 
     [value]="amountCtrl.value | number:'1.2-2'" 
     aria-label="Amount" />
