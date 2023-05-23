@@ -25,6 +25,7 @@ export class AppComponent {
   }
 
   updateSalaryValue(value: number) {
+    console.log('updateSalaryValue: ', value);
     this.salary = value;
   }
 

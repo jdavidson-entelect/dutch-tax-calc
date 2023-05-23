@@ -13,6 +13,6 @@ export class CurrencyInputComponent {
 
   updateValue(updatedVlue: Event) {
       this.valueUpdatedEvent.emit(parseInt((updatedVlue.target as HTMLInputElement).value))
-      // console.log(parseInt((updatedVlue.target as HTMLInputElement).value))
+      console.log(parseInt((updatedVlue.target as HTMLInputElement).value))
   }
 }

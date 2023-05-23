@@ -18,5 +18,6 @@ export class SalaryPickerComponent {
 
   updateSalaryValueEvent(value: number) {
     this.salaryValueUpdatedEvent.emit(value);
+    console.log('Salary value updated: ' + value);
   }
 }
