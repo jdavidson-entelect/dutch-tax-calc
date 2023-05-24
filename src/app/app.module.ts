@@ -11,7 +11,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import { SalaryPickerComponent } from './salary-picker/salary-picker.component';
-import { AllowancePickerComponent } from './allowance-picker/allowance-picker.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CalculationResultsComponent } from './calculation-results/calculation-results.component';
 
@@ -21,7 +20,6 @@ import { CalculationResultsComponent } from './calculation-results/calculation-r
     CurrencyInputComponent,
     DatePickerComponent,
     SalaryPickerComponent,
-    AllowancePickerComponent,
     CalculationResultsComponent
   ],
   imports: [

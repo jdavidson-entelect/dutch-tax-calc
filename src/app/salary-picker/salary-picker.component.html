@@ -10,7 +10,7 @@
 
 
 <section>
-  <mat-checkbox [checked]="vakantiegeldIncludedChecked" [disabled]="vakantiegeldIncludedDisabled">
+  <mat-checkbox [checked]="vakantiegeldIncludedChecked" [disabled]="vakantiegeldIncludedDisabled" (change)="updateAddHolidayAllowance($event)">
     Vakantiegeld included
   </mat-checkbox>
 </section>
