@@ -9,6 +9,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 export class AppComponent {
   selectedDate: string = ""
   salary: number = 0
+  // allowance: number = 0
 
   dateFormGroup = this._formBuilder.group({
     dateCtrl: ['', Validators.required],
@@ -28,6 +29,11 @@ export class AppComponent {
     console.log('updateSalaryValue: ', value);
     this.salary = value;
   }
+
+  // updateAllowanceValue(value: number) {
+  //   console.log('updateAllowanceValue: ', value);
+  //   this.allowance = value;
+  // }
 
 
   constructor(private _formBuilder: FormBuilder) {}

@@ -9,7 +9,8 @@ import { SalaryPaycheck } from 'dutch-tax-income-calculator';
 export class CalculationResultsComponent {
   @Input() selectedDate = "2023";
   @Input() annualSalary: number = 0;
-  @Input() annualAllowance: number = 0; //TODO: Add logic to add allowance value
+  // @Input() annualAllowance: number = 0; //TODO: Add logic to add allowance value
+  @Input() allowanceIncluded: boolean = false;
   @Input() ruling: boolean = true;
 
   paycheck: any;
@@ -17,7 +18,7 @@ export class CalculationResultsComponent {
   ngOnChanges() {
     this.paycheck = new SalaryPaycheck({
       income: this.annualSalary,
-      allowance: false,
+      allowance: this.allowanceIncluded,
       socialSecurity: true,//, What is this and how does it work?
       older: false,
       hours: 40,

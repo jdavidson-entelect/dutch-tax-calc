@@ -14,11 +14,11 @@
         <app-salary-picker (salaryValueUpdatedEvent)="updateSalaryValue($event)"></app-salary-picker>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext>Get Results</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="allowanceFormGroup">
+    <!-- <mat-step [stepControl]="allowanceFormGroup">
         <form [formGroup]="allowanceFormGroup">
           <ng-template matStepLabel>Add your additional allowances</ng-template>
           <app-allowance-picker></app-allowance-picker>
@@ -27,7 +27,7 @@
             <button mat-button matStepperNext>Get Results</button>
           </div>
         </form>
-      </mat-step>
+      </mat-step> -->
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <app-calculation-results [selectedDate] = "selectedDate" [annualSalary]="salary"></app-calculation-results>
