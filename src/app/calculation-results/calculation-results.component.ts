@@ -9,9 +9,8 @@ import { SalaryPaycheck } from 'dutch-tax-income-calculator';
 export class CalculationResultsComponent {
   @Input() selectedDate = "2023";
   @Input() annualSalary: number = 0;
-  // @Input() annualAllowance: number = 0; //TODO: Add logic to add allowance value
   @Input() addHolidayAllowance: boolean = true;
-  @Input() ruling: boolean = true;
+  @Input() addThirtyRuling: boolean = false;
 
   paycheck: any;
 
@@ -26,11 +25,11 @@ export class CalculationResultsComponent {
     'Year', 
     2023, 
     {
-        checked: true,
+        checked: this.addThirtyRuling,
         choice: "normal", //TODO: We need to add checkboxes to be able to choose the different types
     });
     console.log(this.paycheck);
-    console.log(this.addHolidayAllowance);
+    console.log(this.addThirtyRuling);
     console.log(this.annualSalary);
   }
 }

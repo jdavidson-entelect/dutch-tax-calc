@@ -3,7 +3,7 @@
 <app-currency-input (valueUpdatedEvent)="updateSalaryValueEvent($event)"></app-currency-input>
 
 <section>
-  <mat-checkbox [checked]="thirtyPercentChecked" [disabled]="thirtyPercentDisabled">
+  <mat-checkbox [checked]="thirtyPercentChecked" [disabled]="thirtyPercentDisabled" (change)="updateApplyThirtyRuling($event)">
     Apply 30% ruling
   </mat-checkbox>
 </section>

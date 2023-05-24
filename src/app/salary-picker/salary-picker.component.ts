@@ -17,6 +17,7 @@ export class SalaryPickerComponent {
   
   @Output() salaryValueUpdatedEvent = new EventEmitter<number>();
   @Output() addHolidayAllowanceEvent = new EventEmitter<boolean>();
+  @Output() applyThirtyRulingEvent = new EventEmitter<boolean>();
 
   updateSalaryValueEvent(value: number) {
     this.salaryValueUpdatedEvent.emit(value);
@@ -25,5 +26,9 @@ export class SalaryPickerComponent {
 
   updateAddHolidayAllowance(value: MatCheckboxChange) {
     this.addHolidayAllowanceEvent.emit(!value.checked);
+  }
+
+  updateApplyThirtyRuling(value: MatCheckboxChange) {
+    this.applyThirtyRulingEvent.emit(value.checked);
   }
 }

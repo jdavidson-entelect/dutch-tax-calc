@@ -10,6 +10,7 @@ export class AppComponent {
   selectedDate: string = ""
   salary: number = 0
   addHolidayAllowance: boolean = false
+  addThirtyRuling: boolean = false
 
   dateFormGroup = this._formBuilder.group({
     dateCtrl: ['', Validators.required],
@@ -34,10 +35,9 @@ export class AppComponent {
     this.addHolidayAllowance = value;
   }
 
-  // updateAllowanceValue(value: number) {
-  //   console.log('updateAllowanceValue: ', value);
-  //   this.allowance = value;
-  // }
+  updateThirtyRulingEvent(value: boolean) {
+    this.addThirtyRuling = value;
+  }
 
 
   constructor(private _formBuilder: FormBuilder) {}
