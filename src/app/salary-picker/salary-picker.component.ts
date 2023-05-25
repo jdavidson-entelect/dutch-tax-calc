@@ -15,9 +15,18 @@ export class SalaryPickerComponent {
   vakantiegeldIncludedChecked = false;
   vakantiegeldIncludedDisabled = false;
   
+  vakantiegeldMonthlyChecked = false;
+  vakantiegeldMonthlyDisabled = false;
+  
   @Output() salaryValueUpdatedEvent = new EventEmitter<number>();
   @Output() addHolidayAllowanceEvent = new EventEmitter<boolean>();
+  @Output() holidayAllowanceMonthlyEvent = new EventEmitter<boolean>();
   @Output() applyThirtyRulingEvent = new EventEmitter<boolean>();
+
+  ngOnInit(): void {
+    this.addHolidayAllowanceEvent.emit(!this.vakantiegeldIncludedChecked)
+    this.applyThirtyRulingEvent.emit(this.thirtyPercentChecked)
+  }
 
   updateSalaryValueEvent(value: number) {
     this.salaryValueUpdatedEvent.emit(value);
@@ -26,9 +35,14 @@ export class SalaryPickerComponent {
 
   updateAddHolidayAllowance(value: MatCheckboxChange) {
     this.addHolidayAllowanceEvent.emit(!value.checked);
+    console.log('Holiday allowance updated: ' + value.checked);
   }
 
   updateApplyThirtyRuling(value: MatCheckboxChange) {
     this.applyThirtyRulingEvent.emit(value.checked);
+  }
+
+  updatHolidayAllowanceMonthly(value: MatCheckboxChange) {
+    this.holidayAllowanceMonthlyEvent.emit(value.checked);
   }
 }

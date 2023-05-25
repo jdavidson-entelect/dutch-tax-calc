@@ -9,15 +9,27 @@ import { SalaryPaycheck } from 'dutch-tax-income-calculator';
 export class CalculationResultsComponent {
   @Input() selectedDate = "2023";
   @Input() annualSalary: number = 0;
-  @Input() addHolidayAllowance: boolean = true;
+  @Input() addHolidayAllowance: boolean = false;
+  @Input() holidayAllowanceMontly: boolean = false;
   @Input() addThirtyRuling: boolean = false;
+
+  holidayAllowanceAmount: number = 0;
+  netMonth: number = 0;
+  adjustedSalary: number = 0;
+  adjustedHolidayAllowance: number = 0;
 
   paycheck: any;
 
   ngOnChanges() {
+
+    if (this.addHolidayAllowance) { 
+      this.holidayAllowanceAmount =  this.roundNumber(this.annualSalary * (0.08), 2)
+      this.adjustedSalary = this.holidayAllowanceAmount + this.annualSalary
+    } 
+
     this.paycheck = new SalaryPaycheck({
-      income: this.annualSalary,
-      allowance: this.addHolidayAllowance,
+      income: this.addHolidayAllowance? this.adjustedSalary : this.annualSalary,
+      allowance: false,
       socialSecurity: true,//, What is this and how does it work?
       older: false,
       hours: 40,
@@ -30,6 +42,21 @@ export class CalculationResultsComponent {
     });
     console.log(this.paycheck);
     console.log(this.addThirtyRuling);
+    console.log(this.addHolidayAllowance);
     console.log(this.annualSalary);
+    console.log(this.holidayAllowanceAmount);
+
+    
+    this.adjustedHolidayAllowance = this.roundNumber(this.paycheck.netYear*(1/13),2)
+
+    if (this.holidayAllowanceMontly) {
+      this.netMonth = this.paycheck.netMonth;
+    } else {
+      this.netMonth = this.roundNumber((this.paycheck.netYear-this.adjustedHolidayAllowance)/12, 2);
+    }
+  }
+
+  roundNumber(value: number, places = 2) {
+    return Number(value.toFixed(places));
   }
 }

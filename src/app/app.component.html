@@ -13,7 +13,7 @@
       <mat-step [stepControl]="salaryFormGroup">
         <form [formGroup]="salaryFormGroup">
           <ng-template matStepLabel>Add your base salary</ng-template>
-          <app-salary-picker (salaryValueUpdatedEvent)="updateSalaryValue($event)"></app-salary-picker>
+          <app-salary-picker (salaryValueUpdatedEvent)="updateSalaryValue($event)" (addHolidayAllowanceEvent)="updateAddHolidayAllowance($event)" (holidayAllowanceMonthlyEvent)="updateHolidayAllowanceMontly($event)" (applyThirtyRulingEvent)="updateThirtyRulingEvent($event)"></app-salary-picker>
           <div style="display: flex; gap: 12px; justify-content: space-between;">
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button mat-raised-button color="primary" matStepperNext>Get Results</button>
@@ -22,7 +22,7 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
-        <app-calculation-results [selectedDate] = "selectedDate" [annualSalary]="salary"></app-calculation-results>
+        <app-calculation-results [selectedDate] = "selectedDate" [annualSalary]="salary" [addHolidayAllowance]="addHolidayAllowance" [holidayAllowanceMontly]="holidayAllowanceMontly" [addThirtyRuling]="addThirtyRuling"></app-calculation-results>
       </mat-step>
     </mat-stepper>
   </mat-card>

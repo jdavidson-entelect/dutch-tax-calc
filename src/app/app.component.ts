@@ -10,6 +10,7 @@ export class AppComponent {
   selectedDate: string = ""
   salary: number = 0
   addHolidayAllowance: boolean = false
+  holidayAllowanceMontly: boolean = false
   addThirtyRuling: boolean = false
 
   dateFormGroup = this._formBuilder.group({
@@ -37,6 +38,10 @@ export class AppComponent {
 
   updateThirtyRulingEvent(value: boolean) {
     this.addThirtyRuling = value;
+  }
+
+  updateHolidayAllowanceMontly(value: boolean) {
+    this.holidayAllowanceMontly = value
   }
 
 

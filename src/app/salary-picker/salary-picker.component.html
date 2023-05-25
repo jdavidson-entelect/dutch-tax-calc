@@ -1,4 +1,4 @@
-<p>Please insert your base annual salary without any allowances.</p>
+<p>Please insert your annual salary</p>
 
 <app-currency-input (valueUpdatedEvent)="updateSalaryValueEvent($event)"></app-currency-input>
 
@@ -12,5 +12,11 @@
 <section>
   <mat-checkbox [checked]="vakantiegeldIncludedChecked" [disabled]="vakantiegeldIncludedDisabled" (change)="updateAddHolidayAllowance($event)">
     Vakantiegeld included
+  </mat-checkbox>
+</section>
+
+<section>
+  <mat-checkbox [checked]="vakantiegeldMonthlyChecked" [disabled]="vakantiegeldMonthlyDisabled" (change)="updatHolidayAllowanceMonthly($event)">
+    Vakantiegeld payed out monthly
   </mat-checkbox>
 </section>
