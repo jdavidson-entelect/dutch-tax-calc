@@ -1,27 +1,29 @@
-  <mat-stepper orientation="vertical" #stepper>
-    <mat-step [stepControl]="dateFormGroup">
-      <form [formGroup]="dateFormGroup">
-        <ng-template matStepLabel>Year</ng-template>
-          <app-date-picker (dateSelectedEvent) = "updateDate($event)"></app-date-picker>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="salaryFormGroup">
-      <form [formGroup]="salaryFormGroup">
-        <ng-template matStepLabel>Add your base salary</ng-template>
-        <app-salary-picker (salaryValueUpdatedEvent)="updateSalaryValue($event)" (addHolidayAllowanceEvent)="updateAddHolidayAllowance($event)" (applyThirtyRulingEvent)="updateThirtyRulingEvent($event)"></app-salary-picker>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Get Results</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <app-calculation-results [selectedDate] = "selectedDate" [annualSalary]="salary" [addHolidayAllowance]="addHolidayAllowance" [addThirtyRuling]="addThirtyRuling"></app-calculation-results>
-      
-    </mat-step>
-  </mat-stepper>
-  
+<div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+  <mat-card style="margin: auto; max-width: fit-content;">
+    <mat-stepper orientation="vertical" #stepper>
+      <mat-step [stepControl]="dateFormGroup" style="padding-right: 36px !important;">
+        <form [formGroup]="dateFormGroup">
+          <ng-template matStepLabel>Year</ng-template>
+            <app-date-picker (dateSelectedEvent) = "updateDate($event)"></app-date-picker>
+          <div>
+            <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="salaryFormGroup">
+        <form [formGroup]="salaryFormGroup">
+          <ng-template matStepLabel>Add your base salary</ng-template>
+          <app-salary-picker (salaryValueUpdatedEvent)="updateSalaryValue($event)"></app-salary-picker>
+          <div style="display: flex; gap: 12px; justify-content: space-between;">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button mat-raised-button color="primary" matStepperNext>Get Results</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <app-calculation-results [selectedDate] = "selectedDate" [annualSalary]="salary"></app-calculation-results>
+      </mat-step>
+    </mat-stepper>
+  </mat-card>
+</div>

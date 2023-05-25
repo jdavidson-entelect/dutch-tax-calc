@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrencyInputComponent } from './currency-input/currency-input.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import {MatSelectModule} from '@angular/material/select'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SalaryPickerComponent } from './salary-picker/salary-picker.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CalculationResultsComponent } from './calculation-results/calculation-results.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CalculationResultsComponent } from './calculation-results/calculation-r
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatStepperModule
+    MatStepperModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
