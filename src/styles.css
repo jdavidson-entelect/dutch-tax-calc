@@ -8,3 +8,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-vertical-content-container {
     margin-right: 36px !important;
 }
+
+:root {
+    --dutchOrange: #FF9B00;
+    --mdc-theme-primary: var(--dutchOrange);
+}
+
+ .mat-step-icon-selected {
+    background-color: var(--dutchOrange) !important;
+}
+
+.mat-step-icon-state-edit {
+    background-color: var(--dutchOrange) !important; 
+}
