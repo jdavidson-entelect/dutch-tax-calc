@@ -5,6 +5,6 @@
     placeholder="Amount" 
     (change)="updateValue($event)"
     [formControl]="amountCtrl" 
-    [value]="amountCtrl.value | number:'1.2-2'" 
+    [value]="amountCtrl.value | number:'1.2-2' | noComma" 
     aria-label="Amount" />
 </div>

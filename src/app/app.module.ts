@@ -15,6 +15,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { CalculationResultsComponent } from './calculation-results/calculation-results.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { NoCommaPipe } from './shared/no-comma.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     CurrencyInputComponent,
     DatePickerComponent,
     SalaryPickerComponent,
-    CalculationResultsComponent
+    CalculationResultsComponent,
+    NoCommaPipe
   ],
   imports: [
     BrowserModule,
