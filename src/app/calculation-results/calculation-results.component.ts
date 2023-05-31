@@ -28,7 +28,7 @@ export class CalculationResultsComponent {
     } 
 
     this.paycheck = new SalaryPaycheck({
-      income: this.addHolidayAllowance? this.adjustedSalary : this.annualSalary,
+      income: this.addHolidayAllowance ? this.adjustedSalary : this.annualSalary,
       allowance: false,
       socialSecurity: true,//, What is this and how does it work?
       older: false,
@@ -54,6 +54,8 @@ export class CalculationResultsComponent {
     } else {
       this.netMonth = this.roundNumber((this.paycheck.netYear-this.adjustedHolidayAllowance)/12, 2);
     }
+    this.paycheck.netMonth = this.netMonth
+    this.paycheck.adjustedHolidayAllowanceYearly = this.adjustedHolidayAllowance
   }
 
   roundNumber(value: number, places = 2) {

@@ -16,6 +16,8 @@ import { CalculationResultsComponent } from './calculation-results/calculation-r
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { NoCommaPipe } from './shared/no-comma.pipe';
+import { NgChartsModule } from 'ng2-charts';
+import { ResultChartComponent } from './result-chart/result-chart.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { NoCommaPipe } from './shared/no-comma.pipe';
     DatePickerComponent,
     SalaryPickerComponent,
     CalculationResultsComponent,
-    NoCommaPipe
+    NoCommaPipe,
+    ResultChartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { NoCommaPipe } from './shared/no-comma.pipe';
     MatCheckboxModule,
     MatStepperModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
