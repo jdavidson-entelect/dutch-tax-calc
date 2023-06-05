@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ export class AppComponent {
   addHolidayAllowance: boolean = false
   holidayAllowanceMontly: boolean = false
   addThirtyRuling: boolean = false
+
+  @ViewChild('stepper', { static: true }) stepper: MatStepper | undefined;
 
   dateFormGroup = this._formBuilder.group({
     dateCtrl: ['', Validators.required],
@@ -46,4 +49,22 @@ export class AppComponent {
 
 
   constructor(private _formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    var params = new URLSearchParams(window.location.search)
+    console.log(params)
+
+    this.salary = params.has('salary') ? Number(params.get('salary')) ?? 0 : 0;
+    this.addHolidayAllowance = params.get('addHoliday') === 'true'
+    this.holidayAllowanceMontly = params.get('holidayMonthly') === 'true'
+    this.addThirtyRuling = params.get('thirty') === 'true'
+
+    const showResults = params.get('showResults') === 'true'
+    console.log("Jumping to end: ", showResults)
+
+    if (showResults && this.stepper) {
+      console.log(this.stepper)
+      this.stepper.selectedIndex = 2
+    }
+  }
 }

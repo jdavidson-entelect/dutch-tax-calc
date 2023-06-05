@@ -26,6 +26,17 @@ export class SalaryPickerComponent {
   ngOnInit(): void {
     this.addHolidayAllowanceEvent.emit(!this.vakantiegeldIncludedChecked)
     this.applyThirtyRulingEvent.emit(this.thirtyPercentChecked)
+
+    // Check Query Params
+    var params = new URLSearchParams(window.location.search)
+
+    const addHolidayAllowance = params.get('addHoliday') === 'true'
+    const holidayAllowanceMontly = params.get('holidayMonthly') === 'true'
+    const addThirtyRuling = params.get('thirty') === 'true'
+
+    this.vakantiegeldIncludedChecked=addHolidayAllowance
+    this.vakantiegeldMonthlyChecked=holidayAllowanceMontly
+    this.thirtyPercentChecked=addThirtyRuling
   }
 
   updateSalaryValueEvent(value: number) {
