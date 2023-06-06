@@ -29,22 +29,20 @@ export class SalaryPickerComponent {
     var params = new URLSearchParams(window.location.search)
 
     const addHolidayAllowance = params.get('addHoliday') === 'true'
-    const holidayAllowanceMontly = params.get('holidayMonthly') === 'true'
+    const holidayAllowanceMonthly = params.get('holidayMonthly') === 'true'
     const addThirtyRuling = params.get('thirty') === 'true'
 
     this.vakantiegeldIncludedChecked=!addHolidayAllowance
-    this.vakantiegeldMonthlyChecked=holidayAllowanceMontly
+    this.vakantiegeldMonthlyChecked=holidayAllowanceMonthly
     this.thirtyPercentChecked=addThirtyRuling
   }
 
   updateSalaryValueEvent(value: number) {
     this.salaryValueUpdatedEvent.emit(value);
-    console.log('Salary value updated: ' + value);
   }
 
   updateAddHolidayAllowance(value: MatCheckboxChange) {
     this.addHolidayAllowanceEvent.emit(!value.checked);
-    console.log('Holiday allowance updated: ' + value.checked);
   }
 
   updateApplyThirtyRuling(value: MatCheckboxChange) {

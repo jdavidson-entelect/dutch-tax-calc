@@ -12,7 +12,7 @@ export class AppComponent {
   selectedDate: string = ""
   salary: number = 0
   addHolidayAllowance: boolean = false
-  holidayAllowanceMontly: boolean = false
+  holidayAllowanceMonthly: boolean = false
   addThirtyRuling: boolean = false
 
   @ViewChild('stepper', { static: true }) stepper: MatStepper | undefined;
@@ -67,7 +67,7 @@ export class AppComponent {
     this.addThirtyRuling = value;
   }
 
-  updateHolidayAllowanceMontly(value: boolean) {
+  updateHolidayAllowanceMonthly(value: boolean) {
     this.router.navigate(
       [], 
       {
@@ -76,7 +76,7 @@ export class AppComponent {
         queryParamsHandling: 'merge',
         replaceUrl: true,
       });
-    this.holidayAllowanceMontly = value
+    this.holidayAllowanceMonthly = value
   }
 
 
@@ -84,18 +84,16 @@ export class AppComponent {
 
   ngOnInit() {
     var params = new URLSearchParams(window.location.search)
-    console.log(params)
 
     this.salary = params.has('salary') ? Number(params.get('salary')) ?? 0 : 0;
     this.addHolidayAllowance = params.get('addHoliday') === 'true'
-    this.holidayAllowanceMontly = params.get('holidayMonthly') === 'true'
+    this.holidayAllowanceMonthly = params.get('holidayMonthly') === 'true'
     this.addThirtyRuling = params.get('thirty') === 'true'
 
     const showResults = params.get('showResults') === 'true'
     console.log("Jumping to end: ", showResults)
 
     if (showResults && this.stepper) {
-      console.log(this.stepper)
       this.stepper.selectedIndex = 2
     }
   }

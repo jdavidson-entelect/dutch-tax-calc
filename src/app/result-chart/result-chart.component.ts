@@ -35,7 +35,6 @@ export class ResultChartComponent {
     }
 
     ngOnChanges() {
-      console.log("CHNAGED")
       this.setDoughnutValues()
     }
 

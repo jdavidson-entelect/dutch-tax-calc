@@ -10,7 +10,7 @@ export class CalculationResultsComponent {
   @Input() selectedDate = "2023";
   @Input() annualSalary: number = 0;
   @Input() addHolidayAllowance: boolean = false;
-  @Input() holidayAllowanceMontly: boolean = false;
+  @Input() holidayAllowanceMonthly: boolean = false;
   @Input() addThirtyRuling: boolean = false;
 
   holidayAllowanceAmount: number = 0;
@@ -40,16 +40,11 @@ export class CalculationResultsComponent {
         checked: this.addThirtyRuling,
         choice: "normal", //TODO: We need to add checkboxes to be able to choose the different types
     });
-    console.log(this.paycheck);
-    console.log(this.addThirtyRuling);
-    console.log(this.addHolidayAllowance);
-    console.log(this.annualSalary);
-    console.log(this.holidayAllowanceAmount);
 
     
     this.adjustedHolidayAllowance = this.roundNumber(this.paycheck.netYear*(1/13),2)
 
-    if (this.holidayAllowanceMontly) {
+    if (this.holidayAllowanceMonthly) {
       this.netMonth = this.paycheck.netMonth;
     } else {
       this.netMonth = this.roundNumber((this.paycheck.netYear-this.adjustedHolidayAllowance)/12, 2);
