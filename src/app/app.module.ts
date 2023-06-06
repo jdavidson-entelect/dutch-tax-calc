@@ -17,7 +17,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { NoCommaPipe } from './shared/no-comma.pipe';
 import { NgChartsModule } from 'ng2-charts';
+import { Routes, RouterModule } from '@angular/router';
 import { ResultChartComponent } from './result-chart/result-chart.component';
+
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -41,7 +45,8 @@ import { ResultChartComponent } from './result-chart/result-chart.component';
     MatStepperModule,
     MatCardModule,
     MatButtonModule,
-    NgChartsModule
+    NgChartsModule, 
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

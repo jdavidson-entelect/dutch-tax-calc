@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -31,24 +32,55 @@ export class AppComponent {
   }
 
   updateSalaryValue(value: number) {
-    console.log('updateSalaryValue: ', value);
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: { salary: value, showResults: true }, 
+        queryParamsHandling: 'merge', 
+        replaceUrl: true,
+      });
     this.salary = value;
   }
 
   updateAddHolidayAllowance(value: boolean) {
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams:  { addHoliday: value }, 
+        queryParamsHandling: 'merge',
+        replaceUrl: true,
+      });
     this.addHolidayAllowance = value;
   }
 
   updateThirtyRulingEvent(value: boolean) {
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: { thirty: value }, 
+        queryParamsHandling: 'merge',
+        replaceUrl: true,
+      });
     this.addThirtyRuling = value;
   }
 
   updateHolidayAllowanceMontly(value: boolean) {
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: { holidayMonthly: value }, 
+        queryParamsHandling: 'merge',
+        replaceUrl: true,
+      });
     this.holidayAllowanceMontly = value
   }
 
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     var params = new URLSearchParams(window.location.search)
@@ -67,4 +99,6 @@ export class AppComponent {
       this.stepper.selectedIndex = 2
     }
   }
+
+  
 }

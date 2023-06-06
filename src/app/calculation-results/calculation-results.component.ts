@@ -61,4 +61,5 @@ export class CalculationResultsComponent {
   roundNumber(value: number, places = 2) {
     return Number(value.toFixed(places));
   }
+
 }
