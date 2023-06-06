@@ -91,7 +91,6 @@ export class AppComponent {
     this.addThirtyRuling = params.get('thirty') === 'true'
 
     const showResults = params.get('showResults') === 'true'
-    console.log("Jumping to end: ", showResults)
 
     if (showResults && this.stepper) {
       this.stepper.selectedIndex = 2
