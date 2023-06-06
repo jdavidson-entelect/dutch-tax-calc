@@ -1,10 +1,20 @@
-<div class="currency-input">
-  <span>€</span>
-  <input 
-    type="float" 
-    placeholder="Amount" 
-    (change)="updateValue($event)"
-    [formControl]="amountCtrl" 
-    [value]="amountCtrl.value | number:'1.2-2' | noComma" 
-    aria-label="Amount" />
+<div style="display: flex; flex-direction: column;">
+<div style="display: flex; align-items: center; gap: 12px;">
+  <div class="currency-input">
+    <span>€</span>
+    <input 
+      type="float" 
+      placeholder="Amount" 
+      (change)="updateValue($event)"
+      [formControl]="amountCtrl" 
+      [value]="amountCtrl.value | number:'1.2-2' | noComma" 
+      aria-label="Amount" />
+  </div>
+  <span *ngIf="monthly == true">= € {{ (amountCtrl.value ?? 1) * 12 | number:'1.2-2' | noComma }} annual</span>
+</div>
+  <section>
+    <mat-checkbox [checked]="monthly" (change)="updateMonthly($event)">
+      Monthly Amount
+    </mat-checkbox>
+  </section>
 </div>

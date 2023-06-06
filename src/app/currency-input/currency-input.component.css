@@ -13,7 +13,6 @@ label:focus-within {
     border-radius: 5px;
     width: max-content;
     padding: 0.5rem 0;
-    margin-top: 0.5rem;
 }
 .currency-input span {
     margin: 0 1rem;
