@@ -13,10 +13,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
     permissions:
-      id-token: write
       contents: read
+      pages: write
+      id-token: write
+
 
     strategy:
       matrix:
@@ -31,7 +34,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build --if-present --prod
     - name: Upload GitHub Pages artifact
       uses: actions/upload-pages-artifact@v1.0.8
       with:
@@ -41,19 +44,45 @@ jobs:
         path: dist/dutch-tax-calc
         # Duration after which artifact will expire in days.
         # retention-days: # optional, default is 1
-    - name: Deploy GitHub Pages site
-      uses: actions/deploy-pages@v2.0.1
-      with:
-        # GitHub token
-        token: ${{ github.token }}
-        # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
-        # timeout: # optional, default is 600000
-        # Maximum number of status report errors before cancelling a deployment (default: 10)
-        # error_count: # optional, default is 10
-        # Time in milliseconds between two deployment status report (default: 5 seconds)
-        # reporting_interval: # optional, default is 5000
-        # Name of the artifact to deploy
-        # artifact_name: # optional, default is github-pages
-        # Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)
-        # preview: # optional, default is false
+  
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
+    steps:
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v2.0.1
+        with:
+          # GitHub token
+          token: ${{ github.token }}
+          # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
+          # timeout: # optional, default is 600000
+          # Maximum number of status report errors before cancelling a deployment (default: 10)
+          # error_count: # optional, default is 10
+          # Time in milliseconds between two deployment status report (default: 5 seconds)
+          # reporting_interval: # optional, default is 5000
+          # Name of the artifact to deploy
+          # artifact_name: # optional, default is github-pages
+          # Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)
+          # preview: # optional, default is false
+
