@@ -19,6 +19,7 @@ import { NoCommaPipe } from './shared/no-comma.pipe';
 import { NgChartsModule } from 'ng2-charts';
 import { Routes, RouterModule } from '@angular/router';
 import { ResultChartComponent } from './result-chart/result-chart.component';
+import { PensionPickerComponent } from './pension-picker/pension-picker.component';
 
 
 const routes: Routes = [];
@@ -31,7 +32,8 @@ const routes: Routes = [];
     SalaryPickerComponent,
     CalculationResultsComponent,
     NoCommaPipe,
-    ResultChartComponent
+    ResultChartComponent,
+    PensionPickerComponent
   ],
   imports: [
     BrowserModule,

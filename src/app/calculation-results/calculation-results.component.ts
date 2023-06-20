@@ -9,6 +9,7 @@ import { SalaryPaycheck } from 'dutch-tax-income-calculator';
 export class CalculationResultsComponent {
   @Input() selectedDate = "2023";
   @Input() annualSalary: number = 0;
+  @Input() annualPensionContribution: number = 0;
   @Input() addHolidayAllowance: boolean = false;
   @Input() holidayAllowanceMonthly: boolean = false;
   @Input() addThirtyRuling: boolean = false;
@@ -21,6 +22,7 @@ export class CalculationResultsComponent {
   paycheck: any;
 
   ngOnChanges() {
+    this.adjustedSalary = this.annualSalary - this.annualPensionContribution
 
     if (this.addHolidayAllowance) { 
       this.holidayAllowanceAmount =  this.roundNumber(this.annualSalary * (0.08), 2)
@@ -28,7 +30,8 @@ export class CalculationResultsComponent {
     } 
 
     this.paycheck = new SalaryPaycheck({
-      income: this.addHolidayAllowance ? this.adjustedSalary : this.annualSalary,
+      // income: this.addHolidayAllowance ? this.adjustedSalary : this.annualSalary,
+      income: this.adjustedSalary,
       allowance: false,
       socialSecurity: true,//, What is this and how does it work?
       older: false,

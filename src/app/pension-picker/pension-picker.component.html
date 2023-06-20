@@ -1,0 +1,21 @@
+<p>Please insert monthly pension contribution</p>
+<div [style.display]= "percentageValueChecked? 'none' : 'block'">
+    <app-currency-input (valueUpdatedEvent)="updatePensionValueEvent($event)"></app-currency-input>
+</div>
+
+<div [style.display]= "percentageValueChecked? 'block' : 'none'" class="percentage-input">
+    <span>%</span>
+    <input 
+      type="float" 
+      placeholder="Amount" 
+      (change)="updatePercentageValue($event)"
+     />
+</div>
+
+
+<section>
+    <mat-checkbox [checked]="percentageValueChecked" (change)="updatePercentageValueChecked($event)">
+        Set value as percentage
+    </mat-checkbox>
+</section>
+  

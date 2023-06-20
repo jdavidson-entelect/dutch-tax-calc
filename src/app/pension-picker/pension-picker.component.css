@@ -1,0 +1,25 @@
+main {
+    padding: 2rem;
+}
+label {
+    display: block;
+    padding: 1rem;
+}
+label:focus-within {
+    outline: 2px solid #86a8df;
+}
+.percentage-input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: max-content;
+    padding: 0.5rem 0;
+}
+.percentage-input span {
+    margin: 0 1rem;
+}
+.percentage-input input {
+    border: none;
+}
+.percentage-input input:focus {
+    outline: none;
+}

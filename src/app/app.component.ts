@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class AppComponent {
   selectedDate: string = ""
   salary: number = 0
+  pensionContribution: number = 0
   addHolidayAllowance: boolean = false
   holidayAllowanceMonthly: boolean = false
   addThirtyRuling: boolean = false
@@ -22,6 +23,9 @@ export class AppComponent {
   });
   salaryFormGroup = this._formBuilder.group({
     salaryCtrl: ['', Validators.required],
+  });
+  pensionFormGroup = this._formBuilder.group({
+    pensionCtrl: ['', Validators.required],
   });
   allowanceFormGroup = this._formBuilder.group({
     allowanceCtrl: ['', Validators.required],
@@ -41,6 +45,18 @@ export class AppComponent {
         replaceUrl: true,
       });
     this.salary = value;
+  }
+
+  updatePensionValue(value: number) {
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: { pensionContribution: value, showResults: true }, 
+        queryParamsHandling: 'merge', 
+        replaceUrl: true,
+      });
+    this.pensionContribution = value;
   }
 
   updateAddHolidayAllowance(value: boolean) {
@@ -89,11 +105,12 @@ export class AppComponent {
     this.addHolidayAllowance = params.get('addHoliday') === 'true'
     this.holidayAllowanceMonthly = params.get('holidayMonthly') === 'true'
     this.addThirtyRuling = params.get('thirty') === 'true'
-
+    this.pensionContribution = params.has('pensionContribution') ? Number(params.get('pensionContribution')) ?? 0 : 0;
+    
     const showResults = params.get('showResults') === 'true'
 
     if (showResults && this.stepper) {
-      this.stepper.selectedIndex = 2
+      this.stepper.selectedIndex = 3
     }
   }
 
