@@ -17,6 +17,8 @@ export class SalaryPickerComponent {
   
   vakantiegeldMonthlyChecked = false;
   vakantiegeldMonthlyDisabled = false;
+
+  initialSalary = 0
   
   @Output() salaryValueUpdatedEvent = new EventEmitter<number>();
   @Output() addHolidayAllowanceEvent = new EventEmitter<boolean>();
@@ -25,6 +27,12 @@ export class SalaryPickerComponent {
 
   ngOnInit(): void {
 
+      var params = new URLSearchParams(window.location.search)
+      const salary = params.has('salary') ? Number(params.get('salary')) : null
+      if (salary) {
+        this.initialSalary = salary
+      }
+ 
     // Check Query Params
     var params = new URLSearchParams(window.location.search)
 

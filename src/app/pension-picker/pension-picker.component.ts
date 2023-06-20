@@ -16,6 +16,8 @@ export class PensionPickerComponent {
 
   pensionAnnualValue = 0
 
+  initialPensionValue = 0
+
   updatePensionValueEvent(value: number) {
     this.pensionValueUpdatedEvent.emit(value);
   }
@@ -31,6 +33,15 @@ export class PensionPickerComponent {
     let val = parseInt((updatedVlue.target as HTMLInputElement).value)
     this.pensionAnnualValue = this.annualSalary*val/100
     this.pensionValueUpdatedEvent.emit(this.pensionAnnualValue)
+  }
+
+  ngOnInit(): void {
+
+    var params = new URLSearchParams(window.location.search)
+    const salary = params.has('pensionContribution') ? Number(params.get('pensionContribution')) : null
+    if (salary) {
+      this.initialPensionValue = salary
+    }
   }
 
 }

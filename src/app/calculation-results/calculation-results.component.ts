@@ -30,7 +30,6 @@ export class CalculationResultsComponent {
     } 
 
     this.paycheck = new SalaryPaycheck({
-      // income: this.addHolidayAllowance ? this.adjustedSalary : this.annualSalary,
       income: this.adjustedSalary,
       allowance: false,
       socialSecurity: true,//, What is this and how does it work?

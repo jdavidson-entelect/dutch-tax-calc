@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
@@ -14,6 +14,8 @@ export class CurrencyInputComponent {
   @Output() salaryIsMonthly = new EventEmitter<number>();
 
 
+  @Input() initialValue = 0
+
   updateValue(updatedVlue: Event) {
     let val = parseInt((updatedVlue.target as HTMLInputElement).value)
     if (this.monthly) {
@@ -27,11 +29,9 @@ export class CurrencyInputComponent {
     this.valueUpdatedEvent.emit((this.amountCtrl.value ?? 0) * 12)
   }
 
-  ngOnInit() {
-    var params = new URLSearchParams(window.location.search)
-    const salary = params.has('salary') ? Number(params.get('salary')) : null
-    if (salary) {
-      this.amountCtrl.setValue(salary)
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['initialValue']) {
+      this.amountCtrl.setValue(this.initialValue)
     }
   }
 }

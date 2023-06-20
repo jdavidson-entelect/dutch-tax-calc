@@ -1,6 +1,6 @@
 <p>Please insert your annual salary</p>
 
-<app-currency-input (valueUpdatedEvent)="updateSalaryValueEvent($event)"></app-currency-input>
+<app-currency-input (valueUpdatedEvent)="updateSalaryValueEvent($event)" [initialValue]="initialSalary"></app-currency-input>
 
 <section>
   <mat-checkbox [checked]="thirtyPercentChecked" [disabled]="thirtyPercentDisabled" (change)="updateApplyThirtyRuling($event)">

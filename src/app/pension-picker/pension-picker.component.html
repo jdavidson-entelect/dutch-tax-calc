@@ -1,6 +1,6 @@
 <p>Please insert monthly pension contribution</p>
 <div [style.display]= "percentageValueChecked? 'none' : 'block'">
-    <app-currency-input (valueUpdatedEvent)="updatePensionValueEvent($event)"></app-currency-input>
+    <app-currency-input (valueUpdatedEvent)="updatePensionValueEvent($event)" [initialValue]="initialPensionValue"></app-currency-input>
 </div>
 
 <div [style.display]= "percentageValueChecked? 'block' : 'none'" class="percentage-input">
